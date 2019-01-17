@@ -1,0 +1,14 @@
+<mat-toolbar>
+  <span (click)="this.router.navigateByUrl('/home')">Fruit Storefront</span>
+  <!-- Remember to install route guards on these routes as well. -->
+  <a [routerLink]="['catalog']" class="navLink">Catalog</a>
+  <a [routerLink]="['cart']" class="navLink" *ngIf="this.session.getAuthLevel() >= 1">My Cart</a>
+  <a [routerLink]="['wishlist']" class="navLink" *ngIf="this.session.getAuthLevel() >= 1">Wishlist/Collection</a>
+  <a [routerLink]="['control-panel']" class="navLink" *ngIf="this.session.getAuthLevel() === 2">Control Panel</a>
+  <span class="example-fill-remaining-space"></span>
+
+  <a mat-button [routerLink]="['login']" *ngIf="!this.session.isLoggedIn()">Login</a>
+  <p *ngIf="this.session.isLoggedIn()" [ngClass]="{'smFont': this.session.getAuthLevel() === 2}">{{this.session.getEmail()}}</p>
+  <a mat-button (click)="logout()" *ngIf="this.session.isLoggedIn()">Logout</a>
+
+</mat-toolbar>

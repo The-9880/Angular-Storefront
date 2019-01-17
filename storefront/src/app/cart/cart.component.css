@@ -1,0 +1,42 @@
+img
+{
+    max-height: 170px;
+    max-width: 100%;
+    border-radius: 5px;
+    margin-right: 1vw;
+    float:left;
+}
+
+.textBlock
+{
+    width: 50%;
+    margin: auto 0;
+    padding: auto 0;
+}
+input
+{
+    display: inline-block;
+}
+.controls
+{
+    float: right;
+    margin-right: 1vw;
+}
+.cartItem
+{
+    width: 100%;
+    background-color: beige;
+    padding: 1vw 0;
+    border-bottom: 1px solid ghostwhite;
+}
+
+.modal
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: whitesmoke;
+
+    display: none;
+}

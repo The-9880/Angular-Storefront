@@ -1,0 +1,25 @@
+h1
+{
+    text-align: center;
+}
+.section-card
+{
+    background-color: beige;
+    border-bottom: 2px solid whitesmoke;
+    padding: 0 2vw;
+    display: block;
+}
+.section-card .controls
+{
+    float: right;
+}
+.section-card h4
+{
+    display: inline-block;
+}
+
+.section-card img
+{
+    max-height: 150px;
+    width: 200px;
+}

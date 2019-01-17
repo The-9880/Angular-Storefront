@@ -1,0 +1,14 @@
+<h1>Welcome to the Fruit Store!</h1>
+
+<div>
+  <h2>This is a web application that simulates a fruit shop. As an unauthenticated user, you can browse the catalog of items
+    available. To get started with purchasing and saving item lists, you should click the login button below to create an account. Some
+    users with higher privileges - store managers - are capable of accessing a front-end control panel interface to make changes to the
+    underlying database or just moderate the websites social features (comments and the like). They are also able to exercise administrative
+    privileges over the accounts of other users to help them moderate. 
+  </h2>
+  <br><br>
+
+  <a mat-button [routerLink]="['/login']" *ngIf="!this.session.isLoggedIn()">Login</a>
+</div>
+

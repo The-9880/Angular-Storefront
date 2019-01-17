@@ -1,0 +1,41 @@
+<h1 style="text-align:center;">Catalog</h1>
+<div class="grid">
+  <ng-container *ngFor="let item of catalog">
+    <div *ngIf="getStock(item) >= 1" class="itemCard" (click)="selected(item)">
+      <img src={{item.imageUrl}} />
+      <h4>{{item.name}}</h4>
+      <h4>Purchases: {{item.amountSold}}</h4>
+    </div>
+  </ng-container>
+</div>
+
+<!-- This is the setup for the modal display, will appear on item selection. -->
+<div class="modal">
+  <img src={{chosenItem.imageUrl}} class="modalImg"/>
+  <h3>{{chosenItem.name}} --- Price:${{chosenItem.price}} --- Average Rating: {{currentRating}} --- Stock: {{chosenItem.stock}}</h3>
+  <p>{{chosenItem.description}}</p>
+  <input type="number" *ngIf="this.session.isLoggedIn()" [(ngModel)]="quantity"/>
+  <button *ngIf="this.session.isLoggedIn()" (click)="addToCart(chosenItem.name, quantity)">Add to Cart</button>
+
+  <div class="commentCard" *ngFor="let comment of currentReviews">
+    <h4 class="commenterName">{{comment.username}}</h4>
+    <label>Comment:</label>
+    <h4>{{comment.comment}}</h4> <br>
+    <label>Rating:</label>
+    <h4>{{comment.rating}}</h4>
+  </div>
+
+  <button (click)="closeModal()"> Close </button>
+  <!-- close modal button here. -->
+</div>
+
+<!-- Comments - only logged in users can access this. -->
+<div *ngIf="this.session.isLoggedIn()" class="commentBox">
+  <label>Comment: </label>
+  <input type="text" [(ngModel)]="this.comment"><br>
+  <label>Rating (1-5):</label>
+  <input type="number" [(ngModel)]="this.rating">
+  <br><br>
+
+  <button mat-button (click)="addReview()">Leave this review!</button>
+</div>

@@ -1,0 +1,31 @@
+<div class="cartItem" *ngFor="let item of cart">
+  <img [src]="getItemImage(item)"/>
+  <div class="textBlock">  
+    <h2>{{item.name}}</h2>
+    <h3>Amount in cart: {{item.quantity}}</h3>
+    <h3>Amount in stock: {{getStock(item)}}</h3>
+  </div>
+  <label>Amount:</label>
+  <input type="number" [ngModel]="item.quantity" #model (ngModelChange)="compareVals(model, item)" min="1" max="getStock(item)">
+  <label>Price: {{getPrice(item)}}</label>
+
+  <div class="controls">
+    <button mat-button (click)="remove(item)">Remove</button>
+  </div>
+</div>
+
+<!-- <h1 style="text-align:center;">Subtotal: {{getTotal()}}</h1> -->
+<h3>Current Total: ${{total}}</h3>
+<button mat-button (click)="purchase()">Purchase all</button>
+<button mat-button (click)="promptClear()">Clear cart</button>
+
+<div class="modal">
+    <div class="receiptItem" *ngFor="let item of receipt">
+          <h2>{{item.name}}</h2>
+          <h3>Amount you bought: {{item.quantity}}</h3>
+          <label>Price: ${{getPrice(item)}}</label>
+    </div>
+    <h2>Total: ${{receiptTotal}}</h2>
+    <button (click)="closeModal()">Close</button>
+</div>
+

@@ -1,0 +1,24 @@
+.example-fill-remaining-space
+{
+    flex: 1 1 auto;
+}
+
+.navLink
+{
+    text-decoration: none;
+    margin: 0 2vw;
+    color: black;
+    font-size: 1vw;
+    transition: 0.25s;
+    padding: 10px 10px;
+}
+.navLink:hover
+{
+    background-color: silver;
+}
+
+.smFont
+{
+    color: green;
+    font-weight: bolder;
+}

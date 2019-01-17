@@ -1,0 +1,84 @@
+<!-- One section for managing all the users. -->
+<div class="section">
+  <h1>Manage Users</h1>
+
+  <div class="section-card" *ngFor="let user of users">
+    <label>Username: </label>
+    <h4>{{user.email}}</h4>
+    <br>
+    <label>Authorization: </label>
+    <h4>{{user.authLevel}}</h4>
+
+    <div class="controls">
+      <button mat-button (click)="deactivate(user)">Deactivate User</button>
+      <button mat-button (click)="activate(user)">Make activated user</button>
+      <button mat-button (click)="makeSM(user)">Promote to Store Manager</button>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- Another section for managing all the reviews. -->
+<div class="section">
+  <h1>Manage Comments/Reviews</h1>
+  <div class="section-card" *ngFor="let review of reviews">
+      <label>Commenter name: </label>
+      <h4>{{review.username}}</h4>
+      <br>
+      <label>Comment: </label>
+      <h4>{{review.comment}}</h4>
+      <br>
+      <label>Rating: </label>
+      <h4>{{review.rating}}</h4>
+      <br>
+      <label>Hidden? : </label>
+      <h4>{{review.hidden}}</h4>
+      <br>
+      <button mat-button (click)="hideComment(review)">Hide Comment</button>
+      <button mat-button (click)="unhideComment(review)">Unhide Comment</button>
+  </div>
+</div>
+
+
+<!-- Another section for managing all the items; don't need to display images here, just load image urls. -->
+<div class="section">
+  <h1>Manage Items</h1>
+  <div class="section-card" *ngFor="let item of items">
+    <img src={{item.imageUrl}} />
+    <br>
+    <label>Item name: </label>
+    <!-- Careful to sanitize all of these. -->
+    <input type="text" [(ngModel)]="item.name">
+    <br>
+    <label>Item description: </label>
+    <input type="text" [(ngModel)]="item.description">
+    <br>
+    <label>Item cost: </label>
+    <input type="number" [(ngModel)]="item.price">
+    <br>
+    <label>Stock:</label>
+    <input type="number" [(ngModel)]="item.stock">
+    <br>
+
+    <button mat-button (click)="deleteItem(item)">Delete</button>
+  </div>
+  <button mat-button (click)="saveCatalog()">Save all item changes</button>
+</div>
+
+<!-- Add a new item section. -->
+<h1>Add a new item</h1>
+<div class="section-card">
+  <label>Item name:</label>
+  <input type="text" [(ngModel)]="this.newName"><br>
+  <label>Item Price: </label>
+  <input type="number" [(ngModel)]="this.newPrice"><br>
+  <label>Item Description:</label>
+  <input type="text" [(ngModel)]="this.newDescription"><br>
+  <label>Item stock:</label>
+  <input type="number" [(ngModel)]="this.newStock"><br>
+  <label>Item thumbnail URL: </label>
+  <input type="text" [(ngModel)]="this.newImageUrl"><br>
+
+  <button mat-button (click)="addItem()">Add Item</button>
+</div>

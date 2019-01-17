@@ -1,0 +1,39 @@
+<div class="loginContainer">
+  <mat-card>
+
+    <mat-card-title>Login</mat-card-title>
+
+    <p *ngIf="formMode">
+      <mat-form-field appearance="outline">
+        <mat-label>Login email</mat-label>
+        <input matInput placeholder="Email" [(ngModel)]="username">
+      </mat-form-field>
+    </p>
+
+    <p *ngIf="formMode">
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Password" [type]="'password'" [(ngModel)]="password">
+      </mat-form-field>
+    </p>
+
+    <p *ngIf="!formMode">
+        <mat-form-field appearance="outline">
+          <mat-label>Sign up with email</mat-label>
+          <input matInput placeholder="Email" [(ngModel)]="username">
+        </mat-form-field>
+      </p>
+  
+      <p *ngIf="!formMode">
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Password" [type]="'password'" [(ngModel)]="password">
+        </mat-form-field>
+      </p>
+
+    <button mat-flat-button (click)="loginClick()" *ngIf="formMode">Login!</button>
+    <button mat-flat-button (click)="signup()" *ngIf="!formMode">Sign Up!</button>
+    <label>Have an account?</label><input type="checkbox" [(ngModel)]="formMode">
+
+  </mat-card>
+</div>

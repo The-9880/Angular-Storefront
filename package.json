@@ -1,0 +1,30 @@
+{
+  "name": "se3316-ashar252-lab5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/The-9880/se3316-ashar252-lab5.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/The-9880/se3316-ashar252-lab5/issues"
+  },
+  "homepage": "https://github.com/The-9880/se3316-ashar252-lab5#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "email-verification": "^0.4.6",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.3.14",
+    "nodemailer": "^4.7.0",
+    "save": "^2.3.3",
+    "validator": "^10.9.0"
+  }
+}
